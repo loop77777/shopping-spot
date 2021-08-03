@@ -1,0 +1,55 @@
+<%- include("../partials/header")%>
+<%- include("../partials/navbar")%>
+
+<main>
+    <%- include("../partials/flash")%>
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+
+                <h1 class="fw-light text-uppercase">it's a add to cart kinda day!</h1>
+                <p class="lead text-muted text-uppercase">because it's shop o'clock somewhere</p>
+                <p>
+                    <%if(!currentUser){%>
+                    <a href="/login" class="btn btn-outline-secondary my-2">Login to get started</a>
+                    <a href="/register" class="btn btn-secondary my-2">or sign up</a>
+                    <% }else {%>
+                    <% } %>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <%for(let product of products){%>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img id="ProdImg" class="img-fluid" src="<%=product.img%>" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><%=product.name%></h5>
+                            <h6 class="card-subtitle mb-2 text-muted">₹<%=product.price%></h6>
+                            <p class="card-text"><%=product.desc.substring(0,60)%></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a role="button" href="/products/<%=product._id%>"
+                                        class="btn btn-sm btn-outline-secondary">View</a>
+                                    <a href="/products/<%=product._id%>/edit" role="button"
+                                        class="btn btn-sm btn-outline-secondary">Edit</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+           </div>
+       </div>
+    </div>
+
+</main>
+
+
+    <%- include("../partials/footer")%>

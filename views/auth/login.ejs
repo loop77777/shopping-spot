@@ -1,0 +1,45 @@
+<%- include("../partials/header")%>
+<%- include("../partials/navbar")%>
+
+<main>
+  <form class="needs-validation" action="/login" method="POST" novalidate>
+
+    <div class="bg-dark text-secondary px-4 py-5 text-center">
+      <%- include("../partials/flash")%>
+      <div class="py-2">
+        <h1 class="display-9 fw-bold text-white mb-5 text-uppercase">Please sign in</h1>
+        <div class="col-lg-3 mx-auto">
+          <div class="form-floating mb-2">
+            <input type="username" class="form-control" id="username" placeholder=" Username" name="username" required>
+            <label for="username">Username</label>
+            <div class="valid-feedback">Looks Good!</div>
+            <div class="invalid-feedback">
+              Please Provide An Username.
+            </div>
+          </div>
+          <div class="form-floating mb-lg-4">
+            <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
+            <label for="password">password</label>
+            <div class="valid-feedback">Looks Good!</div>
+            <div class="invalid-feedback">
+              Please Provide a password.
+            </div>
+          </div>
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" class="btn btn-success bg-success" value="remember-me"> Remember me
+            </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-secondary">login</button>
+          <label class="mt-4 mb-2">
+            <text type="" value=""> Don't have an Account?
+          </label>
+          <a href="/register" class="w-100 btn btn-lg btn-secondary"> Sign Up</a>
+          <p class="mt-5 mb-4 text-muted">&copy; 2021</p>
+        </div>
+      </div>
+    </div>
+  </form>
+</main>
+
+<%- include("../partials/footer")%>
